@@ -1,41 +1,131 @@
-/* 1. Настраиваем всё тело страницы, чтобы карточка была по центру */
+/* 1. ОБНУЛЕНИЕ СТИЛЕЙ */
+
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* 2. ГЛОБАЛЬНЫЕ НАСТРОЙКИ */
 body {
-    font-family: 'Montserrat', sans-serif; /* Твой шрифт из HTML */
-    background-color: #f5f5f5;             /* Светло-серый фон */
-    display: flex;                         /* Включаем Flexbox */
-    justify-content: center;               /* Центрируем по горизонтали */
-    align-items: center;                   /* Центрируем по вертикали */
-    min-height: 100vh;                     /* Высота на весь экран */
-    margin: 0;
+font-family: 'Montserrat', sans-serif;
+background-color: #f9f9f9;
+color: #2D3B87;
+min-height: 100vh;
 }
 
-/* 2. Сама карточка товара */
-.product-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;                   /* Скругленные углы */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Мягкая тень */
-    max-width: 350px;                      /* Ограничим ширину */
-    text-align: center;                    /* Текст по центру */
+/* 3. ФОН С ОДУВАНЧИКАМИ /
+.bg-wrapper {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+opacity: 0.15; / Легкая прозрачность для стиля */
 }
 
-/* 3. Ограничиваем размер картинки, чтобы она не «кричала» */
-.product-image img {
-    width: 100%;                           /* Растянуть на всю ширину карточки */
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.bg-pattern {
+width: 100%;
+height: 100%;
+object-fit: cover;
 }
 
-/* 4. Стили текста */
-.product-title {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #333;
+/* 4. СЕТКА ТОВАРОВ (GRID) */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 60px 20px;
 }
 
-.product-info {
-    text-align: left;                      /* Описание лучше читать слева */
-    font-size: 14px;
-    color: #666;
+.main-title {
+text-align: center;
+font-size: 32px;
+margin-bottom: 50px;
+font-weight: 600;
+}
+
+.product-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 30px;
+}
+
+/* 5. КАРТОЧКА ТОВАРА */
+.card {
+background: white;
+padding: 20px;
+display: flex;
+flex-direction: column;
+box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+transition: transform 0.3s ease;
+}
+
+.card:hover {
+transform: translateY(-5px); /* Анимация при наведении */
+}
+
+.card__img {
+background: #F2F2F2;
+height: 300px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.card__img img {
+max-height: 85%;
+object-fit: contain;
+}
+
+.card__label {
+font-size: 12px;
+color: #A5A5A5;
+text-transform: uppercase;
+margin-bottom: 8px;
+font-weight: 700;
+}
+
+.card__title {
+font-size: 18px;
+margin-bottom: 12px;
+font-weight: 600;
+}
+
+.card__text {
+font-size: 14px;
+line-height: 1.5;
+color: #4F4F4F;
+margin-bottom: 20px;
+flex-grow: 1; /* Чтобы кнопки всегда были внизу на одном уровне */
+}
+
+/* 6. ПОДВАЛ КАРТОЧКИ (ЦЕНА) */
+.card__footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-top: 1px solid #F2F2F2;
+padding-top: 15px;
+}
+
+.card__price-text {
+color: #8E9AD0;
+font-size: 14px;
+}
+
+.card__price-value {
+font-weight: 700;
+font-size: 18px;
+}
+
+/* 7. АДАПТИВ ПОД ТЕЛЕФОНЫ */
+@media (max-width: 480px) {
+.container {
+padding: 40px 10px;
+}
+.main-title {
+font-size: 24px;
+}
 }
