@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -13,13 +12,14 @@ body {
 }
 
 .bg-wrapper {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1;
-opacity: 0.15; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.15;
+}
 
 .bg-pattern {
   width: 100%;
@@ -116,17 +116,25 @@ opacity: 0.15;
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 40px 10px;
+  .product-card {
+    width: 100%;
+    margin-bottom: 20px;
   }
 
-  .main-title {
-    font-size: 24px;
+  .product-card__title {
+    font-size: 20px;
   }
-  .card__list {
-    margin: 15px 0;
-    padding-left: 20px; /* Важно, чтобы точки были видны */
-    list-style-type: disc;
-    font-size: 14px;
-    line-height: 1.4;
+}
+
+.main-title {
+  font-size: 24px;
+}
+
+.card__list {
+  margin: 15px 0;
+  padding-left: 20px;
+  /* Важно, чтобы точки были видны */
+  list-style-type: disc;
+  font-size: 14px;
+  line-height: 1.4;
 }
